@@ -10,7 +10,7 @@ import SwiftData
 
 @main
 struct SarvamiOSApp: App {
-    var sharedModelContainer: ModelContainer = {
+    static var sharedModelContainer: ModelContainer = {
         let schema = Schema([
             TranslationItem.self,
         ])
@@ -25,8 +25,7 @@ struct SarvamiOSApp: App {
     
     var body: some Scene {
         WindowGroup {
-            TranslateView()
-                .modelContainer(sharedModelContainer)
+            MainView()
         }
     }
 }

@@ -18,91 +18,58 @@ struct TranslateView: View {
     }
     
     var body: some View {
-        NavigationStack {
-            VStack(spacing: 24) {
-                NavigationLink {
-                    NavigationStack {
-                        List {
-                            ForEach(translationItems) { item in
-                                NavigationLink {
-                                    Text("\(item.translation)")
-                                        .font(.body)
-                                } label: {
-                                    Text("\(item.userPrompt)")
-                                }
-                            }
-                            .onDelete(perform: deleteTranslation)
-                        }
-                        .background(.clear)
-                        .navigationTitle("Favorites")
-                    }
-                } label: {
-                    Text("Favorites")
-                        .foregroundColor(Color.orange)
-                        .bold()
-                }
-                
-                TextEditor(text: $inputText)
-                    .frame(minHeight: 100)
-                    .padding(8)
-                    .background(Color.gray.opacity(0.1))
-                    .cornerRadius(8)
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 8)
-                            .stroke(Color.gray.opacity(0.3), lineWidth: 1)
-                    )
-                    .overlay(
-                        Group {
-                            if inputText.isEmpty {
-                                Text("Enter text to translate")
-                                    .foregroundColor(.gray)
-                                    .padding(.leading, 16)
-                                    .padding(.top, 16)
-                                    .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
-                            }
-                        }
-                    )
-                
-                Button(action: {
-                    Task {
-                        await translate()
-                    }
-                }) {
-                    Text("Translate")
-                        .frame(maxWidth: .infinity)
-                        .padding()
-                        .background(Color.blue)
-                        .foregroundStyle(.white)
-                        .clipShape(RoundedRectangle(cornerRadius: 10))
-                }
-                .disabled(isLoading || inputText.isEmpty)
-                
-                if isLoading {
-                    ProgressView()
-                }
-                
-                if let errorMessage {
-                    Text(errorMessage)
-                        .foregroundStyle(.red)
-                }
-                
-                TextEditor(text: $translatedText)
-                    .padding(8)
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .foregroundColor(.primary)
-                    .background(Color.clear)
-                    .scrollContentBackground(.hidden)
-                    .frame(minHeight: 100)
-                    .background(Color.gray.opacity(0.1))
-                    .clipShape(RoundedRectangle(cornerRadius: 8))
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 8)
-                            .stroke(Color.gray.opacity(0.3), lineWidth: 1)
-                    )
+        VStack(spacing: 24) {
+            TextEditor(text: $inputText)
+                .frame(minHeight: 100)
+                .padding(8)
+                .scrollContentBackground(.hidden)
+                .cornerRadius(8)
+                .overlay(
+                    RoundedRectangle(cornerRadius: 8)
+                        .stroke(Color.lightAccentBrown.opacity(0.4), lineWidth: 1)
+                )
+                .tint(.lightAccentBrown)
+            
+            let buttonTitle = isLoading ? nil : "Translate"
+            let buttonIcon = isLoading ? "hexagon" : nil
+            
+            HStack {
+                Text("English")
+                Image(systemName: "arrow.right")
+                Text("తెలుగు")
+                Spacer()
+                CustomActionButton(
+                    text: buttonTitle,
+                    icon: buttonIcon,
+                    action: {
+                        isLoading.toggle()
+//                    Task {
+//                        await translate()
+//                    }
+                },
+                    isLoading: $isLoading)
+                //.disabled(isLoading || inputText.isEmpty)
             }
-            .padding()
-            .navigationTitle("Translate")
+            .frame(height: 64)
+            
+            if let errorMessage {
+                Text(errorMessage)
+                    .foregroundStyle(.red)
+            }
+            
+            TextEditor(text: $translatedText)
+                .padding(8)
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .scrollContentBackground(.hidden)
+                .frame(minHeight: 100)
+                .overlay(
+                    RoundedRectangle(cornerRadius: 8)
+                        .stroke(Color.lightAccentBrown.opacity(0.4), lineWidth: 1)
+                )
+                .tint(.lightAccentBrown)
         }
+        .padding()
+        .background(Color.backgroundLight)
     }
     
     private func translate() async {
@@ -131,14 +98,6 @@ struct TranslateView: View {
             )
             
             modelContext.insert(newItem)
-        }
-    }
-    
-    private func deleteTranslation(offsets: IndexSet) {
-        withAnimation {
-            for index in offsets {
-                modelContext.delete(translationItems[index])
-            }
         }
     }
 }
