@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		E9F423032D94879A00B099DC /* SarvamNetworking in Frameworks */ = {isa = PBXBuildFile; productRef = E9F423022D94879A00B099DC /* SarvamNetworking */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		E9F422DD2D945E1800B099DC /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -34,6 +38,7 @@
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				Info.plist,
+				SarvamNetworking,
 			);
 			target = E9F422C72D945E1600B099DC /* SarvamiOS */;
 		};
@@ -65,6 +70,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E9F423032D94879A00B099DC /* SarvamNetworking in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -91,6 +97,7 @@
 				E9F422CA2D945E1600B099DC /* SarvamiOS */,
 				E9F422DF2D945E1800B099DC /* SarvamiOSTests */,
 				E9F422E92D945E1800B099DC /* SarvamiOSUITests */,
+				E9F423012D94879A00B099DC /* Frameworks */,
 				E9F422C92D945E1600B099DC /* Products */,
 			);
 			sourceTree = "<group>";
@@ -103,6 +110,13 @@
 				E9F422E62D945E1800B099DC /* SarvamiOSUITests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		E9F423012D94879A00B099DC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -119,12 +133,14 @@
 			buildRules = (
 			);
 			dependencies = (
+				E9F423052D948B7600B099DC /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
 				E9F422CA2D945E1600B099DC /* SarvamiOS */,
 			);
 			name = SarvamiOS;
 			packageProductDependencies = (
+				E9F423022D94879A00B099DC /* SarvamNetworking */,
 			);
 			productName = SarvamiOS;
 			productReference = E9F422C82D945E1600B099DC /* SarvamiOS.app */;
@@ -208,6 +224,9 @@
 			);
 			mainGroup = E9F422BF2D945E1600B099DC;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				E9F422FE2D9485DB00B099DC /* XCLocalSwiftPackageReference "SarvamiOS/SarvamNetworking" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = E9F422C92D945E1600B099DC /* Products */;
 			projectDirPath = "";
@@ -279,6 +298,10 @@
 			target = E9F422C72D945E1600B099DC /* SarvamiOS */;
 			targetProxy = E9F422E72D945E1800B099DC /* PBXContainerItemProxy */;
 		};
+		E9F423052D948B7600B099DC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			productRef = E9F423042D948B7600B099DC /* SarvamNetworking */;
+		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
@@ -288,6 +311,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = SarvamiOS/SarvamiOS.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"SarvamiOS/Preview Content\"";
@@ -295,20 +319,23 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SarvamiOS/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = building.SarvamiOS;
+				PRODUCT_BUNDLE_IDENTIFIER = akhil.building.SarvamiOS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -319,6 +346,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = SarvamiOS/SarvamiOS.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"SarvamiOS/Preview Content\"";
@@ -326,20 +354,23 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SarvamiOS/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = building.SarvamiOS;
+				PRODUCT_BUNDLE_IDENTIFIER = akhil.building.SarvamiOS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -396,7 +427,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -453,7 +484,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -471,7 +502,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 66C49P3GHV;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = building.SarvamiOSTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -490,7 +521,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 66C49P3GHV;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = building.SarvamiOSTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -508,6 +539,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 66C49P3GHV;
 				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = building.SarvamiOSUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -525,6 +557,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 66C49P3GHV;
 				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = building.SarvamiOSUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -575,6 +608,26 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		E9F422FE2D9485DB00B099DC /* XCLocalSwiftPackageReference "SarvamiOS/SarvamNetworking" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = SarvamiOS/SarvamNetworking;
+		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		E9F423022D94879A00B099DC /* SarvamNetworking */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E9F422FE2D9485DB00B099DC /* XCLocalSwiftPackageReference "SarvamiOS/SarvamNetworking" */;
+			productName = SarvamNetworking;
+		};
+		E9F423042D948B7600B099DC /* SarvamNetworking */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E9F422FE2D9485DB00B099DC /* XCLocalSwiftPackageReference "SarvamiOS/SarvamNetworking" */;
+			productName = SarvamNetworking;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = E9F422C02D945E1600B099DC /* Project object */;
 }

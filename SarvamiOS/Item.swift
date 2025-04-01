@@ -1,18 +1,13 @@
-//
-//  Item.swift
-//  SarvamiOS
-//
-//  Created by Akhil Pothana on 3/26/25.
-//
-
 import Foundation
 import SwiftData
 
 @Model
-final class Item {
-    var timestamp: Date
+final class TranslationItem {
+    var userPrompt: String
+    var translation: String
     
-    init(timestamp: Date) {
-        self.timestamp = timestamp
+    init(userPrompt: String, translation: String) {
+        self.userPrompt = userPrompt
+        self.translation = translation
     }
 }
